@@ -1,13 +1,14 @@
 There are 4 collections 
-    i.e. users,shops,carts,items.
-        users and shops are two main collections which then influence
-        the carts and items collection respectively.to Access items collection we need 
-        authentication of shops and for cart needs authentication of users.shop collection 
-        is needed as there is no one resposible for accessing items collection as user 
-        is not the one who can alter the data in items.Apis working on users and auth 
+    i.e. User,Shop,Cart,Item.
+        Users and Shop are two main collections which then influence
+        the Cart and Item collection respectively.to Access Items collection we need 
+        authentication of Shop and for Cart needs authentication of User.Shop collection 
+        is needed as there is no one resposible for accessing Item collection as User 
+        is not the one who can alter the data in items.Apis working on User and Shop 
         collections need idependant authentication mechanism.
 
 postman environment variables:
+
     url:             
         currentValue=localhost:{port}
 
@@ -218,8 +219,10 @@ cart=
         localhost:{port}/api/cart/:id=>(delete cart using id of cart without authenticating)
 
 
+
 item:
-    create Item:                
+
+    create Item:
         localhost:{port}/api/items=>(creates item with authentication for shop)
             body:{
                     "name": "xyz",
@@ -234,11 +237,14 @@ item:
                         "name": "abc"
                     }]
                 }
-    read items:                 
+                
+    read items:      
         localhost:{port}/api/items=>(reads item with shop authentication)
+        
                     //GET /items?catagory=fruit
                     //GET /items?limit=2&skip:2
                     //GET /items?sortBy=createdBy:-1
+                    
             {no body ,it will take the Authorization token 
             from environment variable i.e. AuthTokenShop}
 
@@ -256,6 +262,7 @@ item:
             from environment variable i.e. AuthTokenShop}
 
 user avatar=
+
     create user avatar:          
         localhost:{port}/users/me/avatar=>(create user avatar with authentication of user)
             body:("in form-data" key=avatar 
@@ -264,6 +271,7 @@ user avatar=
         localhost:{port}/users/me/avatar=>(delete user avatar with authentication of user)
 
 user avatar=
+
     create shop avatar:
         localhost:{port}/shops/me/avatar=>(create shop avatar with authentication of shop)
             body:("in form-data" key=avatar 
@@ -272,6 +280,7 @@ user avatar=
         localhost:{port}/shops/me/avatar=>(delete shop avatar with authentication of shop)
 
 user image=
+
     create item image:
         localhost:{port}/items/:id/image=>(create item image using item id with authentication of shop)
             body:(in form-data key=image 
