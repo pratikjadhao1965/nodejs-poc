@@ -6,7 +6,14 @@ There are 4 collections
         is needed as there is no one resposible for accessing Item collection as User 
         is not the one who can alter the data in items.Apis working on User and Shop 
         collections need idependant authentication mechanism.
-
+        
+How to run?
+    npm install
+    npm run dev or npm start
+    
+How to test?
+    npm run test
+    
 postman environment variables:
 
     url:             
