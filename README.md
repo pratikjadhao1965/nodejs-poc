@@ -8,10 +8,12 @@ There are 4 collections
         collections need idependant authentication mechanism.
         
 How to run?
+
     npm install
     npm run dev or npm start
     
 How to test?
+    
     npm run test
     
 postman environment variables:
